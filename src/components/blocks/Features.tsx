@@ -18,7 +18,9 @@ export function Features({ title, items }: FeaturesBlock) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
           {items?.map((item, i) => {
-            const Icon = item.icon ? getLucideIcon(item.icon as LucideIconPickerType) : null
+            const Icon = item.icon
+              ? getLucideIcon(item.icon as unknown as LucideIconPickerType)
+              : null
             return (
               <div key={i} className="flex items-start gap-3 sm:gap-4">
                 <div className="shrink-0">
