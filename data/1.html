@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аудит сайта kp45.ru — «Курьер Плюс»</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased leading-relaxed">
+
+    <div class="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+
+        <!-- Заголовок -->
+        <header class="mb-12 text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+                Аудит сайта kp45.ru — «Курьер Плюс»
+            </h1>
+            <p class="text-lg text-slate-500 max-w-2xl mx-auto">
+                Спасибо за скриншоты и уточнения. Оценю сайт по функционалу, UX/UI и технической части — с учётом того, что это зрелый ресурс локального провайдера.
+            </p>
+        </header>
+
+        <!-- Блок 1: Общее впечатление -->
+        <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+                <span class="bg-blue-100 text-blue-700 p-2 rounded-lg mr-3 text-xl">✨</span>
+                1. Общее впечатление
+            </h2>
+            <p class="text-slate-600 mb-4">
+                Сайт <strong>kp45.ru</strong> — это зрелый, аккуратно сделанный корпоративный сайт регионального телеком-провайдера «Курьер Плюс» (г. Шадринск и окрестности). Он решает главную задачу: <strong>быстро показать тарифы, проверить подключение и оставить заявку</strong>. Визуально — современный, с единым брендбуком (синий + белый, скругления, иллюстрации), без визуального шума.
+            </p>
+            <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg">
+                <h3 class="font-bold text-blue-800 mb-2">Сильные стороны</h3>
+                <ul class="text-blue-700 text-sm space-y-2 list-disc pl-5">
+                    <li>Понятная структура: слайдер-герой → проверка подключения → адаптивная карусель тарифов → акции → новости (с AJAX-подгрузкой) → отзывы → насыщенный футер.</li>
+                    <li>Хорошая адаптивность: карусель тарифов корректно перестраивается (4 карточки на десктопе, 3 на ноутбуке, 1 на телефоне), мобильная версия не «ломается».</li>
+                    <li>Живой контент: реальные новости за 2026 год, много отзывов, акции, поздравления.</li>
+                    <li>Признаки зрелого сервиса: личный кабинет, мобильное приложение, бонусная программа, умный домофон/шлагбаум.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Блок 2: Что работает хорошо -->
+        <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+                <span class="bg-indigo-100 text-indigo-700 p-2 rounded-lg mr-3 text-xl">📱</span>
+                2. Что работает хорошо (функционал)
+            </h2>
+
+            <div class="space-y-4">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <h4 class="font-bold text-slate-800 mb-2">Проверка подключения</h4>
+                    <p class="text-sm text-slate-600">
+                        Форма <strong>город → улица → дом</strong> — грамотный подход для провайдера. В коде виден проработанный справочник улиц (включая переулки и СНТ), что для локального бизнеса критично: человек сразу видит, есть ли он в зоне покрытия. Список городов тоже внушительный (Шадринск, Далматово, Катайск, сёла и деревни).
+                    </p>
+                    <p class="text-sm text-slate-500 mt-2"><strong>Замечание:</strong> стоит проверить, что валидация и autocomplete одинаково работают на десктопе (селекты) и на мобильном (текстовое поле «Дом» + кнопка «Проверить»).</p>
+                </div>
+
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <h4 class="font-bold text-slate-800 mb-2">Тарифы — адаптивная карусель</h4>
+                    <p class="text-sm text-slate-600">
+                        Четыре видимых пакета («Всё просто!», «То, что надо!», «Вам и не снилось!», «Полный улет!») — это только первый экран карусели. <strong>Всего тарифов больше</strong> (в коде видны «Просто космос!» на 400 Мбит/с и другие), и они листаются стрелками. Логика адаптивности (4 → 3 → 1 карточка) реализована корректно.
+                    </p>
+                    <p class="text-sm text-slate-600 mt-2">Плюс: чётко указаны скорость, ТВ и срок обещанного платежа; кнопки «Оставить заявку» и «Подробнее о тарифе» — правильная иерархия CTA.</p>
+                    <p class="text-sm text-slate-500 mt-2"><strong>Рекомендация:</strong> добавить индикатор количества страниц (точки/полоски) под каруселью, чтобы пользователь понимал, что тарифов больше четырёх.</p>
+                </div>
+
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <h4 class="font-bold text-slate-800 mb-2">Герой-слайдер</h4>
+                    <p class="text-sm text-slate-600">
+                        Первый слайд — «Умный шлагбаум» — это лишь один из ~8 слайдов. Слайдер переключается <strong>автоматически и вручную</strong> (кнопки-полоски внизу), что видно и на десктопе, и на мобильном. Это хорошее решение: можно ротировать ключевые офферы (шлагбаум, интернет, ТВ, акции).
+                    </p>
+                    <p class="text-sm text-slate-500 mt-2"><strong>Рекомендация:</strong> убедиться, что все 8 слайдов имеют осмысленные CTA и не дублируют друг друга по смыслу; на первом слайде можно добавить ценовой оффер («Интернет от 630 ₽/мес»), чтобы повысить конверсию.</p>
+                </div>
+
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <h4 class="font-bold text-slate-800 mb-2">Новости и акции</h4>
+                    <p class="text-sm text-slate-600">
+                        Лента новостей за 2026 год (сентябрь, август, июнь, май) — актуальная и живая. Кнопка <strong>«Показать ещё»</strong> подгружает следующие новости <strong>через AJAX прямо на страницу</strong>, без перезагрузки — это современный и удобный паттерн. Плюс: новости с иллюстрациями, датами и осмысленными текстами (праздники, график работы, дни рождения города).
+                    </p>
+                </div>
+
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <h4 class="font-bold text-slate-800 mb-2">Отзывы</h4>
+                    <p class="text-sm text-slate-600">
+                        Очень много отзывов (Юлия, Павел, Ольга, Александр, Даниил, Вячеслав, Наталья, Светлана, Ирина, Евгения, Алёна, Никита) — мощное социальное доказательство. На мобильном отзывы показываются по одному с обрезкой текста и кнопкой «Показать».
+                    </p>
+                    <p class="text-sm text-slate-500 mt-2"><strong>Рекомендация:</strong> добавить звёздный рейтинг (5 звёзд) к каждому отзыву — это усилит доверие; также проверить, не дублируются ли отзывы в разметке слайдера (в HTML видны повторы — возможно, особенность бесконечной прокрутки).</p>
+                </div>
+
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <h4 class="font-bold text-slate-800 mb-2">Футер</h4>
+                    <p class="text-sm text-slate-600">
+                        Насыщенный: колонки «Компания», «Услуги» (для квартиры, дома, бизнеса), «Абонентам», «Инструкции и настройки». Хорошо для SEO и для пользователя, который ищет конкретную услугу. Есть соцсети, телефон, политика конфиденциальности, cookies, форма обратной связи.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок 3: Информативность и структура (таймлайн) -->
+        <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+                <span class="bg-emerald-100 text-emerald-700 p-2 rounded-lg mr-3 text-xl">📊</span>
+                3. Информативность и структура
+            </h2>
+            <p class="text-slate-600 mb-6">
+                Структура главной страницы выстроена по классической маркетинговой воронке, что очень хорошо:
+            </p>
+            <ol class="relative border-l border-slate-200 ml-3 space-y-6">
+                <li class="ml-6">
+                    <span class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full ring-4 ring-white text-blue-600 text-xs font-bold">1</span>
+                    <h3 class="font-bold text-slate-800">Первый экран</h3>
+                    <p class="text-sm text-slate-600">Слайдер-герой с ~8 слайдами, автопрокруткой и ручным управлением. На первом слайде — «Умный шлагбаум» и понятный CTA. Плюс форма «Проверить подключение» сразу под баннером — человек моментально узнаёт, доступна ли услуга по его адресу.</p>
+                </li>
+                <li class="ml-6">
+                    <span class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full ring-4 ring-white text-blue-600 text-xs font-bold">2</span>
+                    <h3 class="font-bold text-slate-800">Тарифы</h3>
+                    <p class="text-sm text-slate-600">Адаптивная карусель: 4 карточки на десктопе, 3 на ноутбуке, 1 на телефоне. Названия («Всё просто!», «То, что надо!» и т.д.), параметры (Мбит/с, каналы, обещанный платёж), кнопки «Оставить заявку» и «Подробнее о тарифе». Всего тарифов больше четырёх — листаются стрелками.</p>
+                </li>
+                <li class="ml-6">
+                    <span class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full ring-4 ring-white text-blue-600 text-xs font-bold">3</span>
+                    <h3 class="font-bold text-slate-800">Баннеры, новости и отзывы</h3>
+                    <p class="text-sm text-slate-600">Графические баннеры заметны. Новости за 2026 год с датами и иллюстрациями, подгрузка через AJAX по кнопке «Показать ещё». Отзывы с реальными именами формируют доверие; на мобильном — по одному с обрезкой и кнопкой «Показать».</p>
+                </li>
+                <li class="ml-6">
+                    <span class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full ring-4 ring-white text-blue-600 text-xs font-bold">4</span>
+                    <h3 class="font-bold text-slate-800">Футер</h3>
+                    <p class="text-sm text-slate-600">Насыщенный, но это нормально для оператора связи: колонки «Компания», «Услуги» (для квартиры, дома, бизнеса), «Абонентам», «Инструкции и настройки». Есть соцсети, телефон, политика конфиденциальности, cookies, форма обратной связи. В мобильной версии отлично структурирован.</p>
+                </li>
+            </ol>
+        </section>
+
+        <!-- Блок 4: UX -->
+        <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+                <span class="bg-purple-100 text-purple-700 p-2 rounded-lg mr-3 text-xl">🎯</span>
+                4. Удобство (UX) и точки роста
+            </h2>
+            <p class="text-slate-600 mb-6">
+                В целом UX очень хороший, но есть пара моментов, которые можно было бы улучшить:
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <h4 class="font-bold text-slate-800 mb-2">Форма проверки подключения</h4>
+                    <p class="text-sm text-slate-600">Поля ввода выглядят как выпадающие списки. На мобильном растянуты на всю ширину — это удобно. Стоит сделать форму контрастнее (белая карточка или обводка), чтобы она не сливалась с синим фоном баннера.</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <h4 class="font-bold text-slate-800 mb-2">Сравнение тарифов</h4>
+                    <p class="text-sm text-slate-600">Сейчас тарифы листаются в карусели, но нет режима сравнения (чекбоксы «сравнить»). Для провайдера это полезно: клиент часто выбирает между «80» и «200» Мбит/с. Можно добавить кнопку «Сравнить тарифы» или сводную таблицу.</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <h4 class="font-bold text-slate-800 mb-2">Кнопка «Показать ещё»</h4>
+                    <p class="text-sm text-slate-600">AJAX-подгрузка работает, но не видно, сколько ещё новостей осталось. Можно добавить счётчик или текст «Показать ещё 3».</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <h4 class="font-bold text-slate-800 mb-2">Форма обратной связи</h4>
+                    <p class="text-sm text-slate-600">В футере есть кнопка «Форма обратной связи», но не видно, как она работает (модалка? отдельная страница?). Стоит проверить валидацию и отправку.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок 5: Технические моменты -->
+        <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+                <span class="bg-rose-100 text-rose-700 p-2 rounded-lg mr-3 text-xl">🔴</span>
+                5. Технические моменты
+            </h2>
+            <ol class="list-decimal pl-5 space-y-3 text-slate-600 text-sm">
+                <li><strong class="text-slate-800">Дублирование тарифов и отзывов в HTML</strong> — вероятно, особенность карусели/слайдера (бесконечная прокрутка дублирует слайды). Стоит проверить, не создаёт ли это дублированного контента для поисковиков (canonical, noindex для скрытых слайдов).</li>
+                <li><strong class="text-slate-800">Огромный список улиц</strong> грузится целиком в HTML — для локального сайта не критично, но для производительности лучше подгружать через AJAX/autocomplete.</li>
+                <li><strong class="text-slate-800">Нет видимой schema.org разметки</strong> (LocalBusiness, Product для тарифов, Review для отзывов) — это улучшило бы сниппеты в поиске.</li>
+                <li><strong class="text-slate-800">Cookies</strong> — упоминание есть, но баннера согласия на скриншотах не видно. Для РФ не всегда обязательно, но стоит проверить.</li>
+                <li><strong class="text-slate-800">AJAX-подгрузка новостей</strong> — убедиться, что подгруженные новости имеют корректные URL и индексируются (или, наоборот, скрыты от индексации, если это не нужно).</li>
+            </ol>
+        </section>
+
+        <!-- Таблица оценок -->
+        <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+                <span class="bg-amber-100 text-amber-700 p-2 rounded-lg mr-3 text-xl">📈</span>
+                6. Итоговая оценка (по 5-балльной шкале)
+            </h2>
+            <div class="overflow-x-auto rounded-xl border border-slate-200">
+                <table class="w-full text-sm text-left">
+                    <thead class="bg-slate-100 text-slate-700">
+                        <tr>
+                            <th class="px-4 py-3 font-semibold">Критерий</th>
+                            <th class="px-4 py-3 font-semibold whitespace-nowrap">Оценка</th>
+                            <th class="px-4 py-3 font-semibold">Комментарий</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200">
+                        <tr>
+                            <td class="px-4 py-3 font-medium text-slate-900">Дизайн</td>
+                            <td class="px-4 py-3"><span class="inline-flex items-center rounded-full bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200 px-2.5 py-1 text-xs font-medium">4.5</span></td>
+                            <td class="px-4 py-3 text-slate-600">Чисто, современно, единый стиль. Минус — форма проверки сливается с фоном.</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-medium text-slate-900">UX/навигация</td>
+                            <td class="px-4 py-3"><span class="inline-flex items-center rounded-full bg-amber-50 text-amber-700 ring-1 ring-amber-200 px-2.5 py-1 text-xs font-medium">4.0</span></td>
+                            <td class="px-4 py-3 text-slate-600">Логично, адаптивная карусель тарифов и слайдер-герой работают. Нет сравнения тарифов и рейтинга отзывов.</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-medium text-slate-900">Функционал</td>
+                            <td class="px-4 py-3"><span class="inline-flex items-center rounded-full bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200 px-2.5 py-1 text-xs font-medium">4.5</span></td>
+                            <td class="px-4 py-3 text-slate-600">Проверка подключения, карусель тарифов, AJAX-новости, ЛК, приложение — всё есть.</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-medium text-slate-900">Контент</td>
+                            <td class="px-4 py-3"><span class="inline-flex items-center rounded-full bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200 px-2.5 py-1 text-xs font-medium">4.5</span></td>
+                            <td class="px-4 py-3 text-slate-600">Живые новости за 2026 год, много отзывов, акции. Минус — нет рейтинга отзывов.</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-medium text-slate-900">Мобильная версия</td>
+                            <td class="px-4 py-3"><span class="inline-flex items-center rounded-full bg-emerald-50 text-emerald-700 ring-1 ring-emerald-200 px-2.5 py-1 text-xs font-medium">4.5</span></td>
+                            <td class="px-4 py-3 text-slate-600">Адаптивность хорошая: 1 карточка тарифа, слайдер, отзывы — всё читаемо.</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-3 font-medium text-slate-900">Техническая часть</td>
+                            <td class="px-4 py-3"><span class="inline-flex items-center rounded-full bg-amber-50 text-amber-700 ring-1 ring-amber-200 px-2.5 py-1 text-xs font-medium">4.0</span></td>
+                            <td class="px-4 py-3 text-slate-600">Есть AJAX-подгрузка и слайдеры, но нет schema.org и есть вопросы к дублям в разметке.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Приоритеты -->
+        <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+                <span class="bg-cyan-100 text-cyan-700 p-2 rounded-lg mr-3 text-xl">💡</span>
+                7. Что бы я сделал в первую очередь
+            </h2>
+            <ol class="list-decimal pl-5 space-y-2 text-slate-600">
+                <li>Добавить индикатор страниц под каруселью тарифов (точки/полоски), чтобы было видно, что тарифов больше четырёх.</li>
+                <li>Добавить сравнение тарифов (чекбоксы или сводная таблица).</li>
+                <li>Добавить звёздный рейтинг к отзывам и, возможно, фильтр по источнику.</li>
+                <li>Сделать форму проверки подключения контрастнее (белая карточка).</li>
+                <li>Добавить schema.org (LocalBusiness, Product, Review).</li>
+                <li>Проверить дублирование в разметке карусели и отзывов (canonical/noindex для скрытых слайдов).</li>
+                <li>Добавить счётчик к «Показать ещё» в новостях.</li>
+            </ol>
+        </section>
+
+        <!-- Резюме (градиентный футер) -->
+        <footer class="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-6 sm:p-8 text-white shadow-lg">
+            <h2 class="text-xl font-bold mb-2 flex items-center">
+                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                Резюме
+            </h2>
+            <p class="text-blue-100">
+                Сайт производит впечатление профессионально сделанного ресурса. Он информативен, логичен и отлично адаптирован под мобильные устройства. Карусель тарифов, AJAX-новости и слайдер-герой работают корректно. Структура и визуал полностью отвечают задачам телеком-провайдера: быстро донести информацию до клиента и позволить ему легко оставить заявку.
+            </p>
+        </footer>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ru">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Payload CMS — админка из коробки</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+      <style>
+         @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+         body {
+            font-family: "Inter", sans-serif;
+         }
+         pre {
+            tab-size: 2;
+         }
+         .screenshot-placeholder {
+            background: repeating-linear-gradient(
+               45deg,
+               #f1f5f9,
+               #f1f5f9 10px,
+               #e2e8f0 10px,
+               #e2e8f0 20px
+            );
+         }
+      </style>
+   </head>
+   <body class="bg-slate-50 text-slate-800 antialiased leading-relaxed">
+
+      <div class="max-w-5xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+
+         <!-- Заголовок -->
+         <header class="mb-12 text-center">
+            <div class="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold mb-4">
+               Payload CMS Review
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+               Админка из коробки: что вы получаете «бесплатно»
+            </h1>
+            <p class="text-lg text-slate-500 max-w-3xl mx-auto">
+               Прописали схему данных в TypeScript — получили полноценную админку с CRUD, валидацией, ролями, версионированием, поиском, загрузкой файлов и drag-n-drop блоками. Без единой строки UI-кода.
+            </p>
+         </header>
+
+         <!-- Главный посыл -->
+         <section class="mb-10 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-6 sm:p-8 text-white shadow-lg">
+            <h2 class="text-2xl font-bold mb-3">Главная идея</h2>
+            <p class="text-blue-100 mb-4">
+               В Yii2 админка — это <strong>ваш код</strong>: CRUD-контроллеры, формы, валидация, загрузка файлов, роли, поиск, фильтры. Каждая новая сущность — часы работы.
+            </p>
+            <p class="text-blue-100">
+               В Payload админка — это <strong>следствие схемы</strong>. Описали поля в TypeScript (10–30 строк) — получили готовый интерфейс. Ваш код — только то, что действительно уникально.
+            </p>
+         </section>
+
+         <!-- Структура файлов -->
+         <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+               <span class="bg-slate-100 text-slate-700 p-2 rounded-lg mr-3 text-xl">📁</span>
+               1. Структура файлов — блоки вынесены
+            </h2>
+            <p class="text-slate-600 mb-4">
+               Каждый блок — отдельный файл. Группировка по смыслу. <code class="bg-slate-100 px-1.5 py-0.5 rounded text-sm">Pages.ts</code> — короткий и читаемый, не растёт с каждым блоком.
+            </p>
+
+            <div class="bg-slate-900 rounded-xl p-5 overflow-x-auto mb-4">
+               <pre class="text-slate-100 text-sm leading-relaxed"><code>src/
+├── blocks/
+│   ├── content/
+│   │   ├── Hero.ts        ← блок Hero
+│   │   ├── Text.ts        ← блок Text
+│   │   ├── Features.ts    ← блок Features
+│   │   └── index.ts       ← экспорт ContentBlocks[]
+│   └── index.ts           ← AllBlocks[] (объединяет все группы)
+└── collections/
+    └── Pages.ts           ← только схема страницы + импорт AllBlocks</code></pre>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+               <div class="bg-emerald-50 border-l-4 border-emerald-400 p-4 rounded-r-lg">
+                  <h4 class="font-bold text-emerald-800 mb-1">Добавить блок = 5 минут</h4>
+                  <p class="text-emerald-700 text-sm">Новый файл в группе + строка в <code class="bg-emerald-100 px-1 rounded">index.ts</code>. <code class="bg-emerald-100 px-1 rounded">Pages.ts</code> не трогаем.</p>
+               </div>
+               <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg">
+                  <h4 class="font-bold text-blue-800 mb-1">Переиспользование</h4>
+                  <p class="text-blue-700 text-sm"><code class="bg-blue-100 px-1 rounded">ContentBlocks</code> можно взять в <code class="bg-blue-100 px-1 rounded">Landings</code>, <code class="bg-blue-100 px-1 rounded">Tariffs</code> — без дублирования.</p>
+               </div>
+            </div>
+         </section>
+
+         <!-- Пример: один блок -->
+         <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+               <span class="bg-indigo-100 text-indigo-700 p-2 rounded-lg mr-3 text-xl">🧩</span>
+               2. Один блок = один файл (пример Hero)
+            </h2>
+            <p class="text-slate-600 mb-4">
+               Вот <strong>весь</strong> код блока Hero. Прописали поля — Payload сгенерирует форму в админке.
+            </p>
+
+            <div class="bg-slate-900 rounded-xl p-5 overflow-x-auto">
+               <pre class="text-slate-100 text-sm leading-relaxed"><code>import type { Block } from 'payload'
+
+export const HeroBlock: Block = {
+  slug: 'hero',
+  labels: {
+    singular: { en: 'Hero', ru: 'Hero (баннер)' },
+    plural: { en: 'Hero', ru: 'Hero (баннеры)' },
+  },
+  fields: [
+    { name: 'heading', type: 'text', required: true, label: 'Заголовок' },
+    { name: 'subheading', type: 'textarea', label: 'Подзаголовок' },
+    { name: 'image', type: 'upload', relationTo: 'media', label: 'Изображение' },
+    {
+      name: 'cta',
+      type: 'group',
+      label: 'Кнопка',
+      fields: [
+        { name: 'label', type: 'text', label: 'Текст кнопки' },
+        { name: 'url', type: 'text', label: 'Ссылка (URL)' },
+      ],
+    },
+  ],
+}</code></pre>
+            </div>
+
+            <div class="mt-4 bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg">
+               <p class="text-amber-800 text-sm">
+                  <strong>20 строк кода</strong> → в админке: текстовое поле, textarea, загрузка картинки, группа «Кнопка» с двумя полями, валидация «Заголовок обязателен». Всё — автоматически.
+               </p>
+            </div>
+         </section>
+
+         <!-- Скриншот: админка со списком страниц -->
+         <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+               <span class="bg-purple-100 text-purple-700 p-2 rounded-lg mr-3 text-xl">📋</span>
+               3. Список страниц (List view)
+            </h2>
+            <p class="text-slate-600 mb-4">
+               Колонки (Заголовок, Слаг, Обновлено), поиск, фильтры, пагинация, сортировка, кнопка «Создать», действия с записями — всё есть. Настраивается одной строкой: <code class="bg-slate-100 px-1.5 py-0.5 rounded text-sm">defaultColumns: ['title', 'slug', 'updatedAt']</code>.
+            </p>
+
+            <div class="screenshot-placeholder rounded-xl border-2 border-dashed border-slate-300 p-8 text-center">
+               <p class="text-slate-500 font-medium">
+                  <img src="1.jpg">
+                  <span class="text-sm mt-2 inline-block">
+                     Скриншот: админка → Pages → список страниц.<br>
+                     Видны колонки «Заголовок», «Слаг (URL)», «Обновлено», поиск, кнопка «Создать».
+                  </span>
+               </p>
+            </div>
+         </section>
+
+         <!-- Скриншот: редактирование страницы с блоками -->
+         <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+               <span class="bg-pink-100 text-pink-700 p-2 rounded-lg mr-3 text-xl">🧱</span>
+               4. Редактирование страницы с блоками (drag-n-drop)
+            </h2>
+            <p class="text-slate-600 mb-4">
+               Поле <code class="bg-slate-100 px-1.5 py-0.5 rounded text-sm">type: 'blocks'</code> — это drag-n-drop конструктор. Добавили блок — выбрали тип из списка (Hero, Text, Features) — заполнили поля. Меняете порядок — перетаскиваете. Свернуть/развернуть блок — кнопка.
+            </p>
+
+            <div class="screenshot-placeholder rounded-xl border-2 border-dashed border-slate-300 p-8 text-center">
+               <p class="text-slate-500 font-medium">
+                  <img src="2.jpg">
+                  <span class="text-sm mt-2 inline-block">
+                     Скриншот: админка → Pages → редактирование страницы «О нас».<br>
+                     Видны: заголовок, слаг, SEO-группа, поле «Блоки страницы» с добавленными блоками Hero/Text/Features.<br>
+                     Видна кнопка «Добавить блок» и выпадающий список типов блоков.
+                  </span>
+               </p>
+            </div>
+
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3">
+               <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 text-sm">
+                  <strong class="text-slate-800">Drag-n-drop</strong>
+                  <p class="text-slate-600">Менять порядок блоков мышкой</p>
+               </div>
+               <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 text-sm">
+                  <strong class="text-slate-800">Свернуть блок</strong>
+                  <p class="text-slate-600">Не загромождать форму</p>
+               </div>
+               <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 text-sm">
+                  <strong class="text-slate-800">Валидация</strong>
+                  <p class="text-slate-600">«Заголовок обязателен» — из <code class="bg-slate-100 px-1 rounded">required: true</code></p>
+               </div>
+            </div>
+         </section>
+
+         <!-- Скриншот: загрузка медиа -->
+         <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+               <span class="bg-cyan-100 text-cyan-700 p-2 rounded-lg mr-3 text-xl">🖼️</span>
+               5. Загрузка файлов (Media)
+            </h2>
+            <p class="text-slate-600 mb-4">
+               Коллекция <code class="bg-slate-100 px-1.5 py-0.5 rounded text-sm">Media</code> — это загрузка файлов из коробки: drag-n-drop, превью, кроп, ресайз (sharp), alt-текст, папки. Поле <code class="bg-slate-100 px-1.5 py-0.5 rounded text-sm">type: 'upload', relationTo: 'media'</code> — и в любом блоке можно выбрать картинку из медиатеки или загрузить новую.
+            </p>
+
+            <div class="screenshot-placeholder rounded-xl border-2 border-dashed border-slate-300 p-8 text-center">
+               <p class="text-slate-500 font-medium">
+                  <img src="3.jpg">
+                  <span class="text-sm mt-2 inline-block">
+                     Скриншот: админка → Media → список файлов (сетка превью).<br>
+                     Видна кнопка «Создать», drag-n-drop зона загрузки, превью картинок.
+                  </span>
+               </p>
+            </div>
+         </section>
+
+         <!-- Встроенные возможности -->
+         <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center">
+               <span class="bg-emerald-100 text-emerald-700 p-2 rounded-lg mr-3 text-xl">✅</span>
+               6. Что уже нативное — и не надо реализовывать
+            </h2>
+            <p class="text-slate-600 mb-6">
+               Это то, что в Yii2 пришлось бы писать руками (или ставить мёртвые расширения). В Payload — из коробки, поддерживается, обновляется.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+               <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                  <h4 class="font-bold text-slate-800 mb-2 flex items-center">
+                     <span class="text-blue-600 mr-2">🔐</span> Аутентификация и роли
+                  </h4>
+                  <p class="text-sm text-slate-600">Логин, сессии, JWT, восстановление пароля, роли (admin/editor), access control на коллекции и поля — из коробки.</p>
+               </div>
+               <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                  <h4 class="font-bold text-slate-800 mb-2 flex items-center">
+                     <span class="text-blue-600 mr-2">📝</span> Версионирование и drafts
+                  </h4>
+                  <p class="text-sm text-slate-600">История изменений, откат к версии, черновики (draft/published), автосохранение — одной опцией <code class="bg-slate-100 px-1 rounded">versions: { drafts: true }</code>.</p>
+               </div>
+               <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                  <h4 class="font-bold text-slate-800 mb-2 flex items-center">
+                     <span class="text-blue-600 mr-2">🔍</span> Поиск и фильтры
+                  </h4>
+                  <p class="text-sm text-slate-600">Поиск по полям, фильтры по значениям, сортировка, пагинация — в списках коллекций автоматически.</p>
+               </div>
+               <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                  <h4 class="font-bold text-slate-800 mb-2 flex items-center">
+                     <span class="text-blue-600 mr-2">🌐</span> Локализация интерфейса
+                  </h4>
+                  <p class="text-sm text-slate-600">Русский язык админки — <code class="bg-slate-100 px-1 rounded">i18n: { supportedLanguages: { ru } }</code>. Переводы полей — <code class="bg-slate-100 px-1 rounded">label: { en, ru }</code>.</p>
+               </div>
+               <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                  <h4 class="font-bold text-slate-800 mb-2 flex items-center">
+                     <span class="text-blue-600 mr-2">📤</span> Загрузка файлов
+                  </h4>
+                  <p class="text-sm text-slate-600">Медиатека, drag-n-drop, кроп, ресайз (sharp), alt-текст, папки, S3/local — из коробки.</p>
+               </div>
+               <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                  <h4 class="font-bold text-slate-800 mb-2 flex items-center">
+                     <span class="text-blue-600 mr-2">🔗</span> Связи между коллекциями
+                  </h4>
+                  <p class="text-sm text-slate-600">Relationship (один-к-одному, один-ко-многим), upload, join — декларативно, с UI выбора в админке.</p>
+               </div>
+               <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                  <h4 class="font-bold text-slate-800 mb-2 flex items-center">
+                     <span class="text-blue-600 mr-2">⚡</span> Хуки и валидация
+                  </h4>
+                  <p class="text-sm text-slate-600">beforeChange/afterChange, кастомная валидация, вычисляемые поля — на TypeScript, без магии.</p>
+               </div>
+               <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                  <h4 class="font-bold text-slate-800 mb-2 flex items-center">
+                     <span class="text-blue-600 mr-2">🎨</span> Кастомные поля
+                  </h4>
+                  <p class="text-sm text-slate-600">Свой React-компонент вместо стандартного «загрузчика» — пикер из API, карта, виджет. Полная свобода.</p>
+               </div>
+            </div>
+         </section>
+
+         <!-- Сравнение: Yii2 vs Payload -->
+         <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center">
+               <span class="bg-orange-100 text-orange-700 p-2 rounded-lg mr-3 text-xl">⚖️</span>
+               7. Что это значит на практике
+            </h2>
+
+            <div class="overflow-x-auto">
+               <table class="w-full text-sm text-left">
+                  <thead class="text-xs text-slate-700 uppercase bg-slate-100">
+                     <tr>
+                        <th class="px-4 py-3 rounded-tl-lg">Задача</th>
+                        <th class="px-4 py-3">Yii2 (сейчас)</th>
+                        <th class="px-4 py-3 rounded-tr-lg">Payload</th>
+                     </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-100">
+                     <tr class="bg-white">
+                        <td class="px-4 py-3 font-medium text-slate-800">Новая сущность (CRUD)</td>
+                        <td class="px-4 py-3 text-slate-600">Контроллер + модель + формы + валидация + view (часы)</td>
+                        <td class="px-4 py-3 text-emerald-600 font-medium">Описание полей (10–30 строк)</td>
+                     </tr>
+                     <tr class="bg-slate-50">
+                        <td class="px-4 py-3 font-medium text-slate-800">Загрузка файлов</td>
+                        <td class="px-4 py-3 text-slate-600">Плагин/расширение (мёртвое), настройка, поддержка</td>
+                        <td class="px-4 py-3 text-emerald-600 font-medium"><code class="bg-emerald-50 px-1 rounded">type: 'upload'</code></td>
+                     </tr>
+                     <tr class="bg-white">
+                        <td class="px-4 py-3 font-medium text-slate-800">Роли и доступ</td>
+                        <td class="px-4 py-3 text-slate-600">RBAC + настройка + проверки в каждом контроллере</td>
+                        <td class="px-4 py-3 text-emerald-600 font-medium"><code class="bg-emerald-50 px-1 rounded">access: { read: () =&gt; true }</code></td>
+                     </tr>
+                     <tr class="bg-slate-50">
+                        <td class="px-4 py-3 font-medium text-slate-800">Версионирование</td>
+                        <td class="px-4 py-3 text-slate-600">Плагин или самопис (сложно)</td>
+                        <td class="px-4 py-3 text-emerald-600 font-medium"><code class="bg-emerald-50 px-1 rounded">versions: { drafts: true }</code></td>
+                     </tr>
+                     <tr class="bg-white">
+                        <td class="px-4 py-3 font-medium text-slate-800">Блочный конструктор</td>
+                        <td class="px-4 py-3 text-slate-600">Самопис: модели, рендер, админка, drag-n-drop</td>
+                        <td class="px-4 py-3 text-emerald-600 font-medium"><code class="bg-emerald-50 px-1 rounded">type: 'blocks'</code></td>
+                     </tr>
+                     <tr class="bg-slate-50">
+                        <td class="px-4 py-3 font-medium text-slate-800">Локализация админки</td>
+                        <td class="px-4 py-3 text-slate-600">Вручную (переводы, подключение)</td>
+                        <td class="px-4 py-3 text-emerald-600 font-medium"><code class="bg-emerald-50 px-1 rounded">i18n: { ru }</code></td>
+                     </tr>
+                     <tr class="bg-white">
+                        <td class="px-4 py-3 font-medium text-slate-800">Кастомное поле</td>
+                        <td class="px-4 py-3 text-slate-600">Виджет + JS + интеграция с формой (сложно)</td>
+                        <td class="px-4 py-3 text-emerald-600 font-medium">React-компонент (штатно)</td>
+                     </tr>
+                     <tr class="bg-slate-50">
+                        <td class="px-4 py-3 font-medium text-slate-800">Поддержка и обновления</td>
+                        <td class="px-4 py-3 text-slate-600">Вы сами (мёртвые расширения, PHP 8.4)</td>
+                        <td class="px-4 py-3 text-emerald-600 font-medium">Команда Payload + сообщество</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </section>
+
+         <!-- Скриншот: мобильная админка -->
+         <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+               <span class="bg-teal-100 text-teal-700 p-2 rounded-lg mr-3 text-xl">📱</span>
+               8. Админка адаптивная (мобильная из коробки)
+            </h2>
+            <p class="text-slate-600 mb-4">
+               Админка Payload работает на телефоне и планшете без отдельной вёрстки. Редактировать новость с телефона — реально.
+            </p>
+
+            <div class="screenshot-placeholder rounded-xl border-2 border-dashed border-slate-300 p-8 text-center">
+               <p class="text-slate-500 font-medium">
+                  <img src="4.jpg">
+                  <span class="text-sm mt-2 inline-block">
+                     Скриншот: админка на мобильном (или в DevTools mobile view).<br>
+                     Видно: бургер-меню, форма редактирования страницы, блоки в столбик.
+                  </span>
+               </p>
+            </div>
+         </section>
+
+         <!-- Резюме -->
+         <footer class="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-6 sm:p-8 text-white shadow-lg">
+            <h2 class="text-xl font-bold mb-4 flex items-center">
+               <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+               Итог: админка — не «ваш код», а «следствие схемы»
+            </h2>
+            <p class="text-blue-100 mb-4">
+               В Yii2 админка — это проект внутри проекта. Каждая сущность — часы работы, каждая фича (версии, роли, поиск) — отдельная задача.
+            </p>
+            <p class="text-blue-100 mb-6">
+               В Payload вы <strong>описываете данные</strong> — и получаете админку, которая <strong>уже умеет</strong> всё, что нужно. Ваш код — только уникальная логика (кастомные поля, хуки, интеграции). Админка поддерживается командой Payload и обновляется вместе с фреймворком.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+               <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+                  <div class="text-2xl font-bold mb-1">20 строк</div>
+                  <div class="text-sm text-blue-100">кода на блок → полноценная форма в админке</div>
+               </div>
+               <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+                  <div class="text-2xl font-bold mb-1">0 строк</div>
+                  <div class="text-sm text-blue-100">на CRUD, роли, версии, поиск, медиа — всё нативно</div>
+               </div>
+               <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+                  <div class="text-2xl font-bold mb-1">∞</div>
+                  <div class="text-sm text-blue-100">кастомные поля — React-компонент, что угодно</div>
+               </div>
+            </div>
+         </footer>
+
+      </div>
+
+   </body>
+</html>

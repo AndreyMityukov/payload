@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аудит сайта - Курер плюс</title>
+    <!-- Подключение Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Небольшая настройка шрифтов для красоты */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased leading-relaxed">
+
+    <div class="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+        
+        <!-- Заголовок -->
+        <header class="mb-12 text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+                Аудит главной страницы сайта
+            </h1>
+            <p class="text-lg text-slate-500 max-w-2xl mx-auto">
+                Спасибо за подробное описание и скриншоты разных разрешений. Это отличный подход для аудита. Оценю сайт по трем направлениям.
+            </p>
+        </header>
+
+        <!-- Блок 1: Общее впечатление -->
+        <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+                <span class="bg-blue-100 text-blue-700 p-2 rounded-lg mr-3 text-xl">✨</span>
+                1. Общее впечатление
+            </h2>
+            <p class="text-slate-600 mb-4">
+                Сайт выглядит современно, аккуратно и вызывает доверие. Используется понятная цветовая гамма (синий + белый), которая ассоциируется с надежностью и связью. Стилистика выдержана, нет визуального шума. Это классический, добротный сайт провайдера телекоммуникационных услуг.
+            </p>
+        </section>
+
+        <!-- Блок 2: Адаптивность -->
+        <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+                <span class="bg-indigo-100 text-indigo-700 p-2 rounded-lg mr-3 text-xl">📱</span>
+                2. Адаптивность и кросс-браузерность
+            </h2>
+            <p class="text-slate-600 mb-4">
+                Вы сделали скриншоты разной ширины, и это позволяет увидеть, как сайт адаптируется.
+            </p>
+            <ul class="space-y-3 mb-6">
+                <li class="flex items-start">
+                    <span class="text-green-500 mr-3 mt-1">✔</span>
+                    <div><strong class="text-slate-800">Версия для ПК (1920 и 1366):</strong> Сайт отлично заполняет пространство. На широком экране (1920) тарифы выстроены в ряд (4 колонки), новости в 3 колонки, отзывы в 2 — это правильно, контент не растягивается в нечитаемые строки. На 1366 (классический ноутбук) верстка также остается аккуратной, элементы не сжимаются.</div>
+                </li>
+                <li class="flex items-start">
+                    <span class="text-green-500 mr-3 mt-1">✔</span>
+                    <div><strong class="text-slate-800">Мобильная версия:</strong> Отличная работа с адаптивом. Бургер-меню, крупные шрифты, тарифы в виде слайдера (карусели), новости в столбик — все стандартно и удобно для пальцев. Нижнее меню футера компактно свернуто.</div>
+                </li>
+            </ul>
+
+            <!-- Ваш комментарий про мобильную версию -->
+            <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg">
+                <h3 class="font-bold text-amber-800 mb-2 flex items-center">
+                    <span class="mr-2">💡</span> Ваше замечание про мобильную версию и иконку:
+                </h3>
+                <p class="text-amber-700 text-sm">
+                    Да, я вижу на мобильном скриншоте эту огромную синюю кнопку с белым кругом. Вы абсолютно правы: <strong>это артефакт скриншотера</strong>. Скорее всего, это кнопка виджета обратной связи (или чата), которая не успела прогрузиться в правильном размере (например, из-за отсутствия иконки шрифта или CSS-конфликта при рендере в headless-браузере). На реальном устройстве она, скорее всего, выглядит как аккуратный круг с иконкой в правом нижнем углу (как на десктопе). Это не проблема верстки, а особенность инструмента. В аудите это нужно просто пометить как "недостаток скриншота, а не сайта".
+                </p>
+            </div>
+        </section>
+
+        <!-- Блок 3: Информативность -->
+        <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+                <span class="bg-emerald-100 text-emerald-700 p-2 rounded-lg mr-3 text-xl">📊</span>
+                3. Информативность и структура
+            </h2>
+            <p class="text-slate-600 mb-4">
+                Структура главной страницы выстроена по классической маркетинговой воронке, что очень хорошо:
+            </p>
+            <ol class="relative border-l border-slate-200 ml-3 space-y-6 mb-6">
+                <li class="ml-6">
+                    <span class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full ring-4 ring-white text-blue-600 text-xs font-bold">1</span>
+                    <h3 class="font-bold text-slate-800">Первый экран</h3>
+                    <p class="text-sm text-slate-600">Крупный заголовок (Умный шлагбаум), понятный оффер и кнопка "Подробнее". Плюс кнопка "Проверить подключение" прямо в шапке. Это идеально — человек сразу может узнать, доступна ли услуга по его адресу.</p>
+                </li>
+                <li class="ml-6">
+                    <span class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full ring-4 ring-white text-blue-600 text-xs font-bold">2</span>
+                    <h3 class="font-bold text-slate-800">Тарифы</h3>
+                    <p class="text-sm text-slate-600">Выведены сразу после проверки. Даны названия ("Всё просто", "То, что надо"), четко расписаны параметры (Мбит/с, каналы, обещанный платеж). Кнопка "Оставить заявку" бросается в глаза. На десктопе есть стрелки для прокрутки (если тарифов больше).</p>
+                </li>
+                <li class="ml-6">
+                    <span class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full ring-4 ring-white text-blue-600 text-xs font-bold">3</span>
+                    <h3 class="font-bold text-slate-800">Баннеры, Новости и Отзывы</h3>
+                    <p class="text-sm text-slate-600">Графические баннеры заметны. Новости имеют даты и заголовки. Отзывы с реальными именами и фото формируют доверие.</p>
+                </li>
+                <li class="ml-6">
+                    <span class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full ring-4 ring-white text-blue-600 text-xs font-bold">4</span>
+                    <h3 class="font-bold text-slate-800">Футер</h3>
+                    <p class="text-sm text-slate-600">Очень насыщенный, но это нормально для оператора связи. Много ссылок, есть кнопка "Форма обратной связи" и юридическая информация. В мобильной версии он отлично структурирован.</p>
+                </li>
+            </ol>
+        </section>
+
+        <!-- Блок 4: UX -->
+        <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+                <span class="bg-purple-100 text-purple-700 p-2 rounded-lg mr-3 text-xl">🎯</span>
+                4. Удобство (UX) и точки роста
+            </h2>
+            <p class="text-slate-600 mb-6">
+                В целом UX очень хороший, но есть пара моментов, которые можно было бы улучшить:
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <h4 class="font-bold text-slate-800 mb-2">Форма проверки подключения</h4>
+                    <p class="text-sm text-slate-600">Поля ввода выглядят как выпадающие списки. На мобильном они растянуты на всю ширину, это удобно. Кнопка "Проверить" на мобильном могла бы быть более контрастной, чтобы не сливаться с фоном.</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <h4 class="font-bold text-slate-800 mb-2">Слайдеры тарифов</h4>
+                    <p class="text-sm text-slate-600">На ПК в блоке "Пакетные тарифы" есть стрелки. Если тарифов всего 4, то стрелки не нужны — они вводят в заблуждение. В идеале логика их показа должна зависеть от ширины экрана.</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <h4 class="font-bold text-slate-800 mb-2">Кнопка "Показать еще"</h4>
+                    <p class="text-sm text-slate-600">В блоке новостей она есть. Здорово, если при нажатии новости будут подгружаться без перезагрузки страницы (AJAX).</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <h4 class="font-bold text-slate-800 mb-2">Типографика и Навигация</h4>
+                    <p class="text-sm text-slate-600">Шрифты читаемые. На мобильном верно подобран размер текста. Верхнее меню на ПК понятное, на мобильном скрыто в бургер, что правильно.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Резюме -->
+        <footer class="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-6 sm:p-8 text-white shadow-lg">
+            <h2 class="text-xl font-bold mb-2 flex items-center">
+                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                Резюме
+            </h2>
+            <p class="text-blue-100">
+                Сайт производит впечатление профессионально сделанного ресурса. Он информативен, логичен и отлично адаптирован под мобильные устройства. Ваше подозрение насчет скриншотера абсолютно верно — большая иконка на мобильном скрине это баг программы, а не верстки. В остальном же, структура и визуал полностью отвечают задачам телеком-провайдера: быстро донести информацию до клиента и позволить ему легко оставить заявку.
+            </p>
+        </footer>
+
+    </div>
+
+</body>
+</html>

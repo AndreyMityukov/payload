@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ru">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Преимущества перехода на Next.js + Payload</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+      <style>
+         @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+         body {
+            font-family: "Inter", sans-serif;
+         }
+      </style>
+   </head>
+   <body class="bg-slate-50 text-slate-800 antialiased leading-relaxed">
+
+      <div class="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+
+         <!-- Заголовок -->
+         <header class="mb-12 text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+               Преимущества перехода на Next.js + Payload
+            </h1>
+            <p class="text-lg text-slate-500 max-w-2xl mx-auto">
+               Честный разбор в контексте вашего сайта: что вы реально получите, а что — иллюзия. Без маркетинга — по делу.
+            </p>
+         </header>
+
+         <!-- Блок 1: Главный плюс -->
+         <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+               <span class="bg-blue-100 text-blue-700 p-2 rounded-lg mr-3 text-xl">✨</span>
+               1. Админка, которую не надо поддерживать
+            </h2>
+            <p class="text-slate-600 mb-4">
+               <strong class="text-slate-800">Сейчас:</strong> в Yii2 админка — ваш код. Каждая новая сущность (тарифы, акции, города, секторы) — руками: CRUD-контроллеры, формы, валидация, загрузка файлов, роли. Плюс поддержка — баги, безопасность, UX.
+            </p>
+            <p class="text-slate-600 mb-4">
+               <strong class="text-slate-800">В Payload:</strong> админка генерируется по схеме. Новая коллекция — описание полей (10-30 строк TypeScript) → готовая админка с CRUD, валидацией, загрузкой файлов, ролями, версионированием, drafts, поиском, фильтрами.
+            </p>
+            <div class="bg-emerald-50 border-l-4 border-emerald-400 p-4 rounded-r-lg">
+               <p class="text-emerald-800 text-sm">
+                  <strong>Экономия:</strong> десятки часов на каждую новую сущность. И админка лучше (UX, доступность, мобильная), чем самописная. <strong>Это, пожалуй, главный практический плюс.</strong>
+               </p>
+            </div>
+         </section>
+
+         <!-- Блок 2: TypeScript -->
+         <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+               <span class="bg-indigo-100 text-indigo-700 p-2 rounded-lg mr-3 text-xl">🧩</span>
+               2. TypeScript end-to-end — меньше «сюрпризов»
+            </h2>
+            <p class="text-slate-600 mb-4">
+               <strong class="text-slate-800">Сейчас:</strong> в Yii2 связи «модель ↔ view ↔ админка» держатся на честном слове. Поменял поле в модели — view молча сломался (или в рантайме). IDE не подсказывает.
+            </p>
+            <p class="text-slate-600 mb-4">
+               <strong class="text-slate-800">В Payload + TS:</strong> схема → типы (<code class="bg-slate-100 px-1 rounded">payload-types.ts</code>) → компоненты. Поменял поле — компилятор показал все места, где сломалось. До деплоя.
+            </p>
+            <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg">
+               <p class="text-amber-700 text-sm">
+                  Для проекта, который «очень нужен», это снижает риск «сломалось в проде, узнал от пользователей».
+               </p>
+            </div>
+         </section>
+
+         <!-- Блок 3: Зависимости -->
+         <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+               <span class="bg-emerald-100 text-emerald-700 p-2 rounded-lg mr-3 text-xl">📦</span>
+               3. Меньше «зоопарка» зависимостей
+            </h2>
+            <ul class="space-y-3 mb-6">
+               <li class="flex items-start">
+                  <span class="text-red-500 mr-3 mt-1">✖</span>
+                  <div><strong class="text-slate-800">Сейчас:</strong> Yii2 + расширения (мёртвые), PHP 7→8.4 (боль), composer-конфликты, форки в vendor.</div>
+               </li>
+               <li class="flex items-start">
+                  <span class="text-green-500 mr-3 mt-1">✔</span>
+                  <div><strong class="text-slate-800">В Next.js + Payload:</strong> один стек (Node + TS + Next + Payload + Postgres). Зависимости живые, обновляются, <code class="bg-slate-100 px-1 rounded">npm audit</code> работает. Нет «мёртвых» расширений (Payload сам даёт то, что в Yii2 — расширения).</div>
+               </li>
+            </ul>
+            <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg">
+               <p class="text-blue-800 text-sm">
+                  Это снимает вашу главную боль — «тянуть мёртвые расширения с PHP 7 на 8.4».
+               </p>
+            </div>
+         </section>
+
+         <!-- Блок 4: Блочный конструктор -->
+         <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+               <span class="bg-purple-100 text-purple-700 p-2 rounded-lg mr-3 text-xl">🧱</span>
+               4. Блочный конструктор — родной, не самописный
+            </h2>
+            <p class="text-slate-600 mb-4">
+               <strong class="text-slate-800">Сейчас:</strong> в Yii2 блочный конструктор — ваш код (модели блоков, рендер, админка, <code class="bg-slate-100 px-1 rounded">showInModal</code>). Работает, но поддерживать — вы.
+            </p>
+            <p class="text-slate-600 mb-4">
+               <strong class="text-slate-800">В Payload:</strong> <code class="bg-slate-100 px-1 rounded">blocks</code> field — из коробки (drag-n-drop, вложенные блоки, шаблоны, версионирование). Ваш код — только React-компоненты блоков (рендер). Админка — готова.
+            </p>
+            <p class="text-slate-600">
+               Для «сайта провайдера» (много блоков, модалки-блоки, переиспользование) — сильно экономит.
+            </p>
+         </section>
+
+         <!-- Блок 5: Фронт -->
+         <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+               <span class="bg-pink-100 text-pink-700 p-2 rounded-lg mr-3 text-xl">⚡</span>
+               5. Фронт — интерактивнее, современнее
+            </h2>
+            <p class="text-slate-600 mb-4">
+               <strong class="text-slate-800">Сейчас:</strong> Yii2 + jQuery (скорее всего) — интерактив через AJAX-фрагменты, без реактивности. Сложные виджеты (карусели тарифов, фильтры, карты) — больно.
+            </p>
+            <p class="text-slate-600 mb-4">
+               <strong class="text-slate-800">В React:</strong> реактивность (state → UI), компоненты (переиспользование), экосистема (карусели, карты, формы — готовые). Интерактив — проще и лучше.
+            </p>
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 mt-4">
+               <h4 class="font-bold text-slate-800 mb-2">Пример</h4>
+               <p class="text-sm text-slate-600">Карусель из 9 тарифов с фильтрами (город, технология, контекст) — в React просто (state + компоненты), в Yii2 + jQuery — муторно.</p>
+            </div>
+         </section>
+
+         <!-- Блок 6: SEO -->
+         <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+               <span class="bg-cyan-100 text-cyan-700 p-2 rounded-lg mr-3 text-xl">🔍</span>
+               6. SEO — не хуже, а лучше (если правильно)
+            </h2>
+            <p class="text-slate-600 mb-4">
+               <strong class="text-slate-800">Сейчас:</strong> Yii2 — SSR (хорошо для SEO). Но медленный (PHP + jQuery), плохой Core Web Vitals (LCP, CLS).
+            </p>
+            <p class="text-slate-600 mb-4">
+               <strong class="text-slate-800">В Next.js:</strong> SSR/SSG + оптимизация (next/image, next/font, code splitting, streaming). Core Web Vitals — лучше (если не «всё Client»). SEO — не хуже, часто — лучше (скорость).
+            </p>
+            <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg">
+               <p class="text-amber-700 text-sm">
+                  Нюанс: если всё Client (как вы боялись) — SEO страдает. Но с RSC (страницы — Server) — лучше, чем Yii2.
+               </p>
+            </div>
+         </section>
+
+         <!-- Блок 7: Деплой -->
+         <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+               <span class="bg-orange-100 text-orange-700 p-2 rounded-lg mr-3 text-xl">🚀</span>
+               7. Деплой и DevOps — проще
+            </h2>
+            <p class="text-slate-600 mb-4">
+               <strong class="text-slate-800">Сейчас:</strong> Yii2 — PHP-FPM + Nginx + MySQL + (возможно) Redis. Настройка — вручную, обновления — больно.
+            </p>
+            <p class="text-slate-600 mb-4">
+               <strong class="text-slate-800">В Next.js + Payload:</strong> Docker (app + postgres + caddy) — один <code class="bg-slate-100 px-1 rounded">docker-compose.yml</code>. Обновления — <code class="bg-slate-100 px-1 rounded">docker compose up -d --build</code>. Бэкапы — Postgres просто. CI/CD — просто.
+            </p>
+         </section>
+
+         <!-- Блок 8: AI -->
+         <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+               <span class="bg-violet-100 text-violet-700 p-2 rounded-lg mr-3 text-xl">🤖</span>
+               8. AI-поддержка (важно в 2026)
+            </h2>
+            <ul class="space-y-3 mb-6">
+               <li class="flex items-start">
+                  <span class="text-red-500 mr-3 mt-1">✖</span>
+                  <div><strong class="text-slate-800">Сейчас:</strong> Yii2 — мало данных в LLM. Баги — сами. Вопросы — форумы (мёртвые).</div>
+               </li>
+               <li class="flex items-start">
+                  <span class="text-green-500 mr-3 mt-1">✔</span>
+                  <div><strong class="text-slate-800">В Next.js + Payload:</strong> огромный объём данных в LLM. Баги — быстрее (AI знает стек). Вопросы — ответы есть. Код — генерация лучше.</div>
+               </li>
+            </ul>
+            <p class="text-slate-600">
+               Для «одного разработчика» — сильно снижает время на отладку.
+            </p>
+         </section>
+
+         <!-- Блок 9: Найм -->
+         <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+               <span class="bg-teal-100 text-teal-700 p-2 rounded-lg mr-3 text-xl">👥</span>
+               9. Найм / передача проекта
+            </h2>
+            <p class="text-slate-600 mb-4">
+               <strong class="text-slate-800">Сейчас:</strong> Yii2 — мало кто знает. Найти разработчика — сложно. Передать — сложно.
+            </p>
+            <p class="text-slate-600">
+               <strong class="text-slate-800">В Next.js + Payload:</strong> много кто знает React/Next. Найти — проще. Передать — проще (документация, экосистема). Для нужного проекта — снижает bus factor.
+            </p>
+         </section>
+
+         <!-- Что НЕ получите -->
+         <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+               <span class="bg-red-100 text-red-700 p-2 rounded-lg mr-3 text-xl">⚠️</span>
+               Что НЕ получите (или хуже)
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+               <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                  <h4 class="font-bold text-slate-800 mb-2">Универсальные модалки страниц</h4>
+                  <p class="text-sm text-slate-600">В Yii2 — просто (AJAX-фрагмент), в Next.js — сложно (RSC vs Client). Ваша схема (модалка-блок) решает, но — не «одна галочка». Компромисс.</p>
+               </div>
+               <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                  <h4 class="font-bold text-slate-800 mb-2">Простота PHP</h4>
+                  <p class="text-sm text-slate-600">PHP проще ментально (один рендер, один язык). React/Next — два рендера (server/client), границы, гидратация. Кривая обучения есть.</p>
+               </div>
+               <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                  <h4 class="font-bold text-slate-800 mb-2">«Всё в одном»</h4>
+                  <p class="text-sm text-slate-600">Yii2 — монолит (контроллер → модель → view). Next.js + Payload — слои. Больше файлов, больше «переключений». Но чище.</p>
+               </div>
+               <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                  <h4 class="font-bold text-slate-800 mb-2">Готовые расширения Yii2</h4>
+                  <p class="text-sm text-slate-600">В Yii2 — много готовых расширений (хоть мёртвых). В Next.js — другие (живые), но не те же. Миграция — переписать логику, не «поставить пакет».</p>
+               </div>
+            </div>
+         </section>
+
+         <!-- Сводная таблица -->
+         <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center">
+               <span class="bg-slate-200 text-slate-700 p-2 rounded-lg mr-3 text-xl">📊</span>
+               Сводная таблица
+            </h2>
+            <div class="overflow-x-auto">
+               <table class="w-full text-sm text-left">
+                  <thead class="text-xs text-slate-700 uppercase bg-slate-100">
+                     <tr>
+                        <th class="px-4 py-3 rounded-tl-lg">Критерий</th>
+                        <th class="px-4 py-3">Yii2 (сейчас)</th>
+                        <th class="px-4 py-3">Next.js + Payload</th>
+                        <th class="px-4 py-3 rounded-tr-lg">Выигрыш</th>
+                     </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-100">
+                     <tr class="bg-white">
+                        <td class="px-4 py-3 font-medium text-slate-800">Админка</td>
+                        <td class="px-4 py-3 text-slate-600">Самописная, поддержка</td>
+                        <td class="px-4 py-3 text-slate-600">Генерируется, поддержка Payload</td>
+                        <td class="px-4 py-3"><span class="text-green-600 font-bold">Next.js +++</span></td>
+                     </tr>
+                     <tr class="bg-slate-50">
+                        <td class="px-4 py-3 font-medium text-slate-800">Типизация</td>
+                        <td class="px-4 py-3 text-slate-600">Нет (или частично)</td>
+                        <td class="px-4 py-3 text-slate-600">TS end-to-end</td>
+                        <td class="px-4 py-3"><span class="text-green-600 font-bold">Next.js ++</span></td>
+                     </tr>
+                     <tr class="bg-white">
+                        <td class="px-4 py-3 font-medium text-slate-800">Зависимости</td>
+                        <td class="px-4 py-3 text-slate-600">Мёртвые, PHP 7→8.4</td>
+                        <td class="px-4 py-3 text-slate-600">Живые, npm audit</td>
+                        <td class="px-4 py-3"><span class="text-green-600 font-bold">Next.js +++</span></td>
+                     </tr>
+                     <tr class="bg-slate-50">
+                        <td class="px-4 py-3 font-medium text-slate-800">Блочный конструктор</td>
+                        <td class="px-4 py-3 text-slate-600">Самописный</td>
+                        <td class="px-4 py-3 text-slate-600">blocks из коробки</td>
+                        <td class="px-4 py-3"><span class="text-green-600 font-bold">Next.js ++</span></td>
+                     </tr>
+                     <tr class="bg-white">
+                        <td class="px-4 py-3 font-medium text-slate-800">Фронт-интерактив</td>
+                        <td class="px-4 py-3 text-slate-600">jQuery, AJAX</td>
+                        <td class="px-4 py-3 text-slate-600">React, компоненты</td>
+                        <td class="px-4 py-3"><span class="text-green-600 font-bold">Next.js ++</span></td>
+                     </tr>
+                     <tr class="bg-slate-50">
+                        <td class="px-4 py-3 font-medium text-slate-800">SEO</td>
+                        <td class="px-4 py-3 text-slate-600">SSR, медленный</td>
+                        <td class="px-4 py-3 text-slate-600">SSR/SSG, оптимизация</td>
+                        <td class="px-4 py-3"><span class="text-green-600 font-bold">Next.js +</span></td>
+                     </tr>
+                     <tr class="bg-white">
+                        <td class="px-4 py-3 font-medium text-slate-800">Деплой</td>
+                        <td class="px-4 py-3 text-slate-600">PHP-FPM + Nginx + вручную</td>
+                        <td class="px-4 py-3 text-slate-600">Docker, compose</td>
+                        <td class="px-4 py-3"><span class="text-green-600 font-bold">Next.js +</span></td>
+                     </tr>
+                     <tr class="bg-slate-50">
+                        <td class="px-4 py-3 font-medium text-slate-800">AI-поддержка</td>
+                        <td class="px-4 py-3 text-slate-600">Мало данных</td>
+                        <td class="px-4 py-3 text-slate-600">Много данных</td>
+                        <td class="px-4 py-3"><span class="text-green-600 font-bold">Next.js ++</span></td>
+                     </tr>
+                     <tr class="bg-white">
+                        <td class="px-4 py-3 font-medium text-slate-800">Найм</td>
+                        <td class="px-4 py-3 text-slate-600">Сложно</td>
+                        <td class="px-4 py-3 text-slate-600">Легко</td>
+                        <td class="px-4 py-3"><span class="text-green-600 font-bold">Next.js ++</span></td>
+                     </tr>
+                     <tr class="bg-slate-50">
+                        <td class="px-4 py-3 font-medium text-slate-800">Универсальные модалки</td>
+                        <td class="px-4 py-3 text-slate-600">Просто (AJAX)</td>
+                        <td class="px-4 py-3 text-slate-600">Сложно (RSC)</td>
+                        <td class="px-4 py-3"><span class="text-red-600 font-bold">Yii2 ++</span></td>
+                     </tr>
+                     <tr class="bg-white">
+                        <td class="px-4 py-3 font-medium text-slate-800">Ментальная простота</td>
+                        <td class="px-4 py-3 text-slate-600">Высокая</td>
+                        <td class="px-4 py-3 text-slate-600">Средняя</td>
+                        <td class="px-4 py-3"><span class="text-red-600 font-bold">Yii2 +</span></td>
+                     </tr>
+                     <tr class="bg-slate-50">
+                        <td class="px-4 py-3 font-medium text-slate-800">«Всё в одном»</td>
+                        <td class="px-4 py-3 text-slate-600">Да</td>
+                        <td class="px-4 py-3 text-slate-600">Слои</td>
+                        <td class="px-4 py-3"><span class="text-red-600 font-bold">Yii2 +</span></td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </section>
+
+         <!-- Главный неочевидный плюс -->
+         <section class="mb-10 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 sm:p-8 border border-blue-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+               <span class="bg-blue-600 text-white p-2 rounded-lg mr-3 text-xl">💡</span>
+               Главный неочевидный плюс: «проект не умрёт»
+            </h2>
+            <p class="text-slate-700 mb-4">
+               Страх — «Yii2 легаси, мёртвые расширения, AI не поможет». Next.js + Payload — снимает это:
+            </p>
+            <ul class="space-y-2 text-slate-700">
+               <li class="flex items-start"><span class="text-blue-600 mr-2">•</span> Зависимости живые (обновляются, не надо форкать).</li>
+               <li class="flex items-start"><span class="text-blue-600 mr-2">•</span> AI помогает (много данных, быстрее отладка).</li>
+               <li class="flex items-start"><span class="text-blue-600 mr-2">•</span> Найм — проще (не вы один).</li>
+               <li class="flex items-start"><span class="text-blue-600 mr-2">•</span> Документация — есть (не форумы 2018).</li>
+               <li class="flex items-start"><span class="text-blue-600 mr-2">•</span> Безопасность — npm audit, обновления (не «патчить мёртвые пакеты»).</li>
+            </ul>
+            <p class="text-slate-700 mt-4 font-medium">
+               Это — главное. Не «React модный», а «проект не умрёт через 5 лет».
+            </p>
+         </section>
+
+         <!-- Резюме -->
+         <footer class="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-6 sm:p-8 text-white shadow-lg">
+            <h2 class="text-xl font-bold mb-4 flex items-center">
+               <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+               Резюме
+            </h2>
+            <p class="text-blue-100 mb-4">
+               Для вашего проекта переход оправдан. Модалки — решаемы (ваша схема «модалка-блок»). Главный выигрыш — проект живёт долго (не легаси), админка не поддерживается вами, AI помогает, найм проще. Это стоит 2-3 месяцев переписывания.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+               <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+                  <h4 class="font-bold mb-2">Плюсы (реальные)</h4>
+                  <ul class="text-sm text-blue-100 space-y-1">
+                     <li>• Админка из коробки (главный практический плюс)</li>
+                     <li>• TS end-to-end (меньше «сюрпризов»)</li>
+                     <li>• Живые зависимости (нет «мёртвых расширений»)</li>
+                     <li>• Блочный конструктор родной</li>
+                     <li>• Фронт интерактивнее</li>
+                     <li>• AI помогает</li>
+                     <li>• Найм проще</li>
+                     <li>• Проект не умрёт через 5 лет</li>
+                  </ul>
+               </div>
+               <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+                  <h4 class="font-bold mb-2">Минусы (честно)</h4>
+                  <ul class="text-sm text-blue-100 space-y-1">
+                     <li>• Универсальные модалки сложнее (схема решает, но не «одна галочка»)</li>
+                     <li>• Ментальная простота ниже (два рендера)</li>
+                     <li>• Кривая обучения (TS, Next, RSC)</li>
+                     <li>• Нет «готовых» расширений Yii2 (другие, живые, но не те же)</li>
+                  </ul>
+               </div>
+            </div>
+         </footer>
+
+      </div>
+
+   </body>
+</html>

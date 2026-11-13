@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аудит сайта - Курьер плюс</title>
+    <!-- Подключение Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased leading-relaxed">
+
+    <div class="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+        
+        <!-- Заголовок -->
+        <header class="mb-12 text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+                Аудит главной страницы сайта
+            </h1>
+            <p class="text-lg text-slate-500 max-w-2xl mx-auto">
+                Подробный разбор внешнего вида, информативности и удобства интерфейса на основе скриншота главной страницы регионального провайдера.
+            </p>
+        </header>
+
+        <!-- Блок 1: Общее впечатление -->
+        <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+                <span class="bg-blue-100 text-blue-700 p-2 rounded-lg mr-3 text-xl">✨</span>
+                1. Общее впечатление (Внешний вид)
+            </h2>
+            <p class="text-slate-600 mb-4">
+                Перед нами добротный, современный и функциональный корпоративный ресурс. Сайт не пытается быть излишне креативным в ущерб юзабилити, а решает главную задачу: быстро донести до пользователя информацию об услугах и ценах.
+            </p>
+            <p class="text-slate-600">
+                <strong>Стиль:</strong> Спокойный, деловой. Используется сине-бело-голубая гамма, которая ассоциируется с надежностью и технологиями (классика для IT/телекома). 3D-маскот и стикеры в акциях добавляют живости, делая сайт не слишком сухим. Дизайн «чистый», без визуального шума.
+            </p>
+        </section>
+
+        <!-- Блок 2: Информативность -->
+        <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+                <span class="bg-emerald-100 text-emerald-700 p-2 rounded-lg mr-3 text-xl">📊</span>
+                2. Информативность (Высокая)
+            </h2>
+            <p class="text-slate-600 mb-6">
+                Сайт закрывает практически все базовые потребности клиента на первом экране. Структура выстроена по классической маркетинговой воронке:
+            </p>
+            <ol class="relative border-l border-slate-200 ml-3 space-y-6 mb-6">
+                <li class="ml-6">
+                    <span class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full ring-4 ring-white text-blue-600 text-xs font-bold">1</span>
+                    <h3 class="font-bold text-slate-800">Первый экран (Hero-блок)</h3>
+                    <p class="text-sm text-slate-600">Четкое позиционирование («Умный шлагбаум»), понятное описание преимущества и кнопка призыва к действию (CTA) «Подробнее».</p>
+                </li>
+                <li class="ml-6">
+                    <span class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full ring-4 ring-white text-blue-600 text-xs font-bold">2</span>
+                    <h3 class="font-bold text-slate-800">Быстрая проверка</h3>
+                    <p class="text-sm text-slate-600">Блок «Проверить подключение» с выбором города, улицы и дома — это <strong>отличное UX-решение</strong>. Клиент сразу понимает, работают ли они по его адресу, не тратя время на звонки.</p>
+                </li>
+                <li class="ml-6">
+                    <span class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full ring-4 ring-white text-blue-600 text-xs font-bold">3</span>
+                    <h3 class="font-bold text-slate-800">Тарифы</h3>
+                    <p class="text-sm text-slate-600">Представлены наглядно. Всего 4 варианта, у каждого — понятное название, перечень услуг и цена. Цены крупные, читаются легко. Кнопки дублируются («Оставить заявку» и «Подробнее»).</p>
+                </li>
+                <li class="ml-6">
+                    <span class="absolute -left-3 flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full ring-4 ring-white text-blue-600 text-xs font-bold">4</span>
+                    <h3 class="font-bold text-slate-800">Новости и Отзывы</h3>
+                    <p class="text-sm text-slate-600">Блок с новостями большой. Видно, что компания активно живет. Блок с отзывами (с фото/аватарами клиентов) повышает лояльность и формирует доверие.</p>
+                </li>
+            </ol>
+        </section>
+
+        <!-- Блок 3: Удобство -->
+        <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+                <span class="bg-purple-100 text-purple-700 p-2 rounded-lg mr-3 text-xl">🎯</span>
+                3. Удобство (Юзабилити)
+            </h2>
+            <p class="text-slate-600 mb-6">
+                Интерфейс интуитивно понятен. Пользователю не нужно «искать» нужную кнопку.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <h4 class="font-bold text-slate-800 mb-2">Навигация</h4>
+                    <p class="text-sm text-slate-600">Верхнее меню классическое и понятное. Телефон техподдержки и график работы вынесены в шапку — стандарт хорошего тона для таких сайтов.</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <h4 class="font-bold text-slate-800 mb-2">Визуальная иерархия</h4>
+                    <p class="text-sm text-slate-600">Акцент сделан на тарифах. Кнопки синего цвета (основной цвет бренда) хорошо выделяются на белом фоне.</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <h4 class="font-bold text-slate-800 mb-2">Сетка</h4>
+                    <p class="text-sm text-slate-600">Используется модульная сетка (карточки тарифов, карточки новостей, карточки отзывов). Это делает страницу опрятной и структурированной.</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                    <h4 class="font-bold text-slate-800 mb-2">Подвал (Footer)</h4>
+                    <p class="text-sm text-slate-600">Очень подробный и грамотно структурированный. Это признак серьезной компании. Есть ссылки на соцсети, полный перечень услуг и юридическая информация.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок 4: Зоны роста -->
+        <section class="mb-10 bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+                <span class="bg-amber-100 text-amber-700 p-2 rounded-lg mr-3 text-xl">💡</span>
+                4. Потенциальные зоны роста
+            </h2>
+            <p class="text-slate-600 mb-6">
+                Несмотря на общую высокую оценку, есть несколько моментов, которые можно было бы улучшить:
+            </p>
+            <ul class="space-y-4">
+                <li class="flex items-start bg-amber-50 p-4 rounded-lg border-l-4 border-amber-400">
+                    <span class="text-amber-500 mr-3 mt-1 font-bold">!</span>
+                    <div><strong class="text-slate-800">Разнобой в визуале новостей:</strong> В блоке новостей соседствуют фотографии, 3D-графика, скриншоты и коллажи. Это немного «разваливает» общую картину. Если привести все превью к единому стилю, сайт станет выглядеть дороже.</div>
+                </li>
+                <li class="flex items-start bg-slate-50 p-4 rounded-lg border-l-4 border-slate-300">
+                    <span class="text-slate-400 mr-3 mt-1 font-bold">i</span>
+                    <div><strong class="text-slate-800">Заголовки в тарифах:</strong> Названия «Все просто!», «То, что надо!», «Вам и не снилось!» — это немного старомодный подход к неймингу. Современные провайдеры чаще используют цифры (например: «Домашний 100», «Максимальный 500») или лаконичные названия. Но это дело вкуса и целевой аудитории.</div>
+                </li>
+                <li class="flex items-start bg-slate-50 p-4 rounded-lg border-l-4 border-slate-300">
+                    <span class="text-slate-400 mr-3 mt-1 font-bold">i</span>
+                    <div><strong class="text-slate-800">Блок «Наши проекты»:</strong> Слева от тарифов висит облачко с маскотом. Выглядит мило, но непонятно, куда оно ведет и насколько оно нужно прямо в центре экрана с тарифами. Возможно, оно отвлекает.</div>
+                </li>
+                <li class="flex items-start bg-slate-50 p-4 rounded-lg border-l-4 border-slate-300">
+                    <span class="text-slate-400 mr-3 mt-1 font-bold">i</span>
+                    <div><strong class="text-slate-800">Плотность информации в футере:</strong> Подвал очень плотный. На мобильных устройствах он может превратиться в очень длинную «простыню», которую нужно долго скроллить.</div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Резюме -->
+        <footer class="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-6 sm:p-8 text-white shadow-lg">
+            <h2 class="text-xl font-bold mb-2 flex items-center">
+                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                Итог
+            </h2>
+            <p class="text-blue-100">
+                Сайт отлично справляется с задачей конверсии: человек зашел, проверил адрес, увидел цену, оставил заявку. Дизайн современный, аккуратный и вызывает доверие. Это хороший пример классического сайта телеком-компании, где функциональность преобладает над дизайнерскими изысками, что в данном случае абсолютно оправдано.
+            </p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
